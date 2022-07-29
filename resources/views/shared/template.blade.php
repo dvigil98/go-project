@@ -59,9 +59,15 @@
                         </li>
                         <li class="nav-header">Configuraciones</li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" id="modulo">
+                            <a href="/departamentos" class="nav-link" id="departamentos">
                                 <i class="nav-icon fas fa-th"></i>
-                                <p>Modulo</p>
+                                <p>Departamentos</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/municipios" class="nav-link" id="municipios">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>Municipios</p>
                             </a>
                         </li>
                         <li class="nav-header">Accesos</li>
