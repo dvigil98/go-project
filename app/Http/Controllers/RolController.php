@@ -13,6 +13,7 @@ class RolController extends Controller
 
     public function __construct(RolRepository $rolRepository) {
         $this->rolRepository = $rolRepository;
+        $this->middleware('auth');
     }
 
     public function index() {

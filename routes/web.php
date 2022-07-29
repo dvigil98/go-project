@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
  
 /*
 |--------------------------------------------------------------------------
@@ -15,18 +17,19 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
+// ruta inicial
+Route::get('/', function() {
     return redirect('/login');
 });
 
-Route::get('/login', function () {
-    return view('login/login');
-});
+// login
+Route::match(['get','post'], '/login', [LoginController::class, 'login'])->name('login');
 
-Route::get('/dashboard', function () {
-    return view('dashboard/dashboard');
-});
+// logout
+Route::get('/logout', [LoginController::class, 'logout']);
 
+// dashboard
+Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 
 // roles
 Route::get('/roles', [RolController::class, 'index']);

@@ -26,12 +26,12 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                        User Logged
+                        {{ Auth::user()->nombre }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Perfil</a>
                         <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Configuraciones</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Salir</a>
+                        <a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Salir</a>
                     </div>
                 </li>
             </ul>

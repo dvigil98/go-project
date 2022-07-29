@@ -12,13 +12,14 @@
 </head>
 <body class="hold-transition login-page">
     <div class="login-box">
+        @include('shared/messages')
         <div class="card mt-3">
             <div class="card-body">
                 <p class="login-box-msg">Iniciar sesion</p>
-                <form action="#" method="post">
+                <form action="/login" method="post">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Email...">
+                        <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email...">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -26,7 +27,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña...">
+                        <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Contraseña...">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
