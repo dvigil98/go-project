@@ -66,13 +66,13 @@
                         </li>
                         <li class="nav-header">Accesos</li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" id="roles">
+                            <a href="/roles" class="nav-link" id="roles">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>Roles</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" id="usuarios">
+                            <a href="/users" class="nav-link" id="users">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>Usuarios</p>
                             </a>
