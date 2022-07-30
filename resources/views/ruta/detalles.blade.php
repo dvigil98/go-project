@@ -122,6 +122,11 @@
 @section('scripts')
 <script>
     $('#rutas').addClass('active')
+    $('.table').DataTable({
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json'
+        }
+    })
     $('.btnEditar').click(function() {
         let id = $(this).attr('data-id')
         let costo = $(this).attr('data-costo')
