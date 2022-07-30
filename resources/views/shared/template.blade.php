@@ -52,9 +52,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" id="modulo">
+                            <a href="/rutas" class="nav-link" id="rutas">
                                 <i class="nav-icon fas fa-th"></i>
-                                <p>Modulo</p>
+                                <p>Rutas</p>
                             </a>
                         </li>
                         <li class="nav-header">Configuraciones</li>

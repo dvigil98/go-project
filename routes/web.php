@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\MunicipioController;
+use App\Http\Controllers\RutaController;
  
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,16 @@ Route::get('/municipios/editar/{id}', [MunicipioController::class, 'editar']);
 Route::put('/municipios/actualizar/{id}', [MunicipioController::class, 'actualizar']);
 Route::delete('/municipios/eliminar/{id}', [MunicipioController::class, 'eliminar']);
 Route::get('/municipios/detalles/{id}', [MunicipioController::class, 'detalles']);
+
+// rutas
+Route::get('/rutas', [RutaController::class, 'index']);
+Route::get('/rutas/agregar', [RutaController::class, 'agregar']);
+Route::post('/rutas/guardar', [RutaController::class, 'guardar']);
+Route::delete('/rutas/eliminar/{id}', [RutaController::class, 'eliminar']);
+Route::get('/rutas/detalles/{id}', [RutaController::class, 'detalles']);
+Route::get('/rutas/municipios/departamento/{departamento_id}', [RutaController::class, 'obtenerMunicipios']);
+Route::put('/rutas/editar/detalle', [RutaController::class, 'editarDetalle']);
+Route::delete('/rutas/eliminar/detalle/{id}', [RutaController::class, 'eliminarDetalle']);
 
 // Configuracion inicial
 
