@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\MunicipioController;
 use App\Http\Controllers\RutaController;
+use App\Http\Controllers\ClienteController;
  
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,15 @@ Route::get('/rutas/detalles/{id}', [RutaController::class, 'detalles']);
 Route::get('/rutas/municipios/departamento/{departamento_id}', [RutaController::class, 'obtenerMunicipios']);
 Route::put('/rutas/editar/detalle', [RutaController::class, 'editarDetalle']);
 Route::delete('/rutas/eliminar/detalle/{id}', [RutaController::class, 'eliminarDetalle']);
+
+// clientes
+Route::get('/clientes', [ClienteController::class, 'index']);
+Route::get('/clientes/agregar', [ClienteController::class, 'agregar']);
+Route::post('/clientes/guardar', [ClienteController::class, 'guardar']);
+Route::get('/clientes/editar/{id}', [ClienteController::class, 'editar']);
+Route::put('/clientes/actualizar/{id}', [ClienteController::class, 'actualizar']);
+Route::delete('/clientes/eliminar/{id}', [ClienteController::class, 'eliminar']);
+Route::get('/clientes/detalles/{id}', [ClienteController::class, 'detalles']);
 
 // Configuracion inicial
 

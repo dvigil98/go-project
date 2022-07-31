@@ -57,6 +57,12 @@
                                 <p>Rutas</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/clientes" class="nav-link" id="clientes">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>Clientes</p>
+                            </a>
+                        </li>
                         <li class="nav-header">Configuraciones</li>
                         <li class="nav-item">
                             <a href="/departamentos" class="nav-link" id="departamentos">
