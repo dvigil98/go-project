@@ -14,11 +14,9 @@ class Cliente extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'razon_social',
-        'representante',
+        'nombre',
+        'apellido',
         'dui',
-        'nit',
-        'telefono',
         'email',
         'password',
         'activo'

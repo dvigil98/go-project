@@ -38,6 +38,46 @@
         </div>
     </div>
 </form>
+<form action="/rutas/agregar/municipio" method="post">
+    @csrf
+    <div class="modal fade" id="exampleModalAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header border-0">
+            </div>
+            <div class="modal-body">
+                <input type="hidden" name="detalle_id" id="detalle_id">
+                <input type="hidden" name="ruta_id" value="{{ $ruta->id }}">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label>Departamento</label>
+                        <select name="departamento_id" id="departamento_id" class="form-control selectpicker" data-live-search="true">
+                            <option value="">Seleccione</option>
+                            @foreach($departamentos as $i)
+                            <option value="{{ $i->id }}">{{ $i->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </div>                              
+                    <div class="form-group">
+                        <label>Municipio</label>
+                        <select name="municipio_id" id="municipio_id" class="form-control selectpicker" data-live-search="true">
+                            <option value="">Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Costo</label>
+                        <input type="number" name="costo" id="costo" class="form-control" placeholder="Costo...">
+                    </div>                              
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Agregar</button>
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
 <section class="content">
     <div class="container-fluid">
         <form action="#" method="post">
@@ -61,6 +101,9 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card">
+                        <div class="card-header border-0">
+                            <a class="btn btn-primary" data-toggle="modal" data-target="#exampleModalAdd" href="#">Agregar municipio</a>
+                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped">
@@ -132,6 +175,18 @@
         let costo = $(this).attr('data-costo')
         $('#detalle_id').val(id)
         $('#costo').val(costo)
+    })
+    $('.selectpicker').selectpicker()
+    $('#departamento_id').change(function() {
+        let departamentoId = $('#departamento_id').val();
+        $.get('/rutas/municipios/departamento/'+departamentoId, function(data) {
+            let opt = '<option value="">Seleccione</option>'
+            data.forEach(d => {
+                opt += `<option value="${d.id}">${d.nombre}</option>`
+            })
+            $('#municipio_id').html(opt)
+            $('.selectpicker').selectpicker('refresh')
+        })
     })
 </script>
 @endsection

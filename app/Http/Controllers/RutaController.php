@@ -61,7 +61,8 @@ class RutaController extends Controller
     public function detalles($id) {
         $ruta = $this->rutaRepository->getDetails($id);
         $rutasDetalles = $this->rutaRepository->getRutasDetalles($id);
-        return view('ruta/detalles', ['ruta' => $ruta, 'detalles' => $rutasDetalles]);
+        $departamentos = $this->rutaRepository->getDepartamentos();
+        return view('ruta/detalles', ['ruta' => $ruta, 'detalles' => $rutasDetalles, 'departamentos' => $departamentos]);
     }
 
     public function eliminarDetalle(Request $request, $id) {
@@ -82,6 +83,22 @@ class RutaController extends Controller
             return redirect('/rutas/detalles/'.$ruta_id)->with('msgType','success')->with('msg','Datos eliminados');
         else
             return redirect('/rutas/detalles/'.$ruta_id)->with('msgType','danger')->with('msg','Datos no eliminados');
+    }
+
+    public function agregarMunicipio(Request $request) {
+        $request->validate([
+            'departamento_id' => 'required',
+            'municipio_id' => 'required'
+        ]);
+        $rutaDetalle = new RutaDetalle();
+        $ruta_id = $request->input('ruta_id');
+        $rutaDetalle->ruta_id = $request->input('ruta_id');
+        $rutaDetalle->municipio_id = $request->input('municipio_id');
+        $rutaDetalle->costo = $request->input('costo');
+        if ( $this->rutaRepository->saveDetails($rutaDetalle) ) 
+            return redirect('/rutas/detalles/'.$ruta_id)->with('msgType','success')->with('msg','Datos guardados');
+        else
+        return redirect('/rutas/detalles/'.$ruta_id)->with('msgType','danger')->with('msg','Datos no guardados');
     }
 
     // External

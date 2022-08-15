@@ -24,11 +24,9 @@ class ClienteFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'razon_social' => 'required',
-            'representante' => 'required',
+            'nombre' => 'required',
+            'apellido' => 'required',
             'dui' => 'required',
-            'nit' => 'required',
-            'telefono' => 'required',
             'email' => 'required',
             'password' => 'required'
         ];

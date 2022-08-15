@@ -74,6 +74,7 @@ Route::get('/rutas/detalles/{id}', [RutaController::class, 'detalles']);
 Route::get('/rutas/municipios/departamento/{departamento_id}', [RutaController::class, 'obtenerMunicipios']);
 Route::put('/rutas/editar/detalle', [RutaController::class, 'editarDetalle']);
 Route::delete('/rutas/eliminar/detalle/{id}', [RutaController::class, 'eliminarDetalle']);
+Route::post('/rutas/agregar/municipio', [RutaController::class, 'agregarMunicipio']);
 
 // clientes
 Route::get('/clientes', [ClienteController::class, 'index']);

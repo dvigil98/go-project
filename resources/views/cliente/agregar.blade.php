@@ -25,24 +25,16 @@
                             <div class="row">
                                 <div class="col-md-4">  
                                     <div class="form-group">
-                                        <label>Razon social</label>
-                                        <input type="text" name="razon_social" id="razon_social" class="form-control @error('razon_social') is-invalid @enderror" placeholder="Razon social...">
+                                        <label>Nombre</label>
+                                        <input type="text" name="nombre" id="nombre" class="form-control @error('nombre') is-invalid @enderror" placeholder="Nombre...">
                                     </div>                              
                                     <div class="form-group">
-                                        <label>Representante</label>
-                                        <input type="text" name="representante" id="representante" class="form-control @error('representante') is-invalid @enderror" placeholder="Representante...">
+                                        <label>Apellido</label>
+                                        <input type="text" name="apellido" id="apellido" class="form-control @error('apellido') is-invalid @enderror" placeholder="Apellido...">
                                     </div>                              
                                     <div class="form-group">
                                         <label>DUI</label>
                                         <input type="text" name="dui" id="dui" class="form-control @error('dui') is-invalid @enderror" placeholder="DUI...">
-                                    </div>                              
-                                    <div class="form-group">
-                                        <label>NIT</label>
-                                        <input type="text" name="nit" id="nit" class="form-control @error('nit') is-invalid @enderror" placeholder="NIT...">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Telefono</label>
-                                        <input type="text" name="telefono" id="telefono" class="form-control @error('telefono') is-invalid @enderror" placeholder="Telefono...">
                                     </div>                              
                                 </div>
                                 <div class="col-md-4">

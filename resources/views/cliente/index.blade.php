@@ -27,8 +27,8 @@
                                 <thead>
                                     <tr>
                                         <!-- <th>Id</th> -->
-                                        <th>Razon social</th>
-                                        <th>Representante</th>
+                                        <th>Cliente</th>
+                                        <th>DUI</th>
                                         <th>Estado</th>
                                         <th class="text-center">Acciones</th>
                                     </tr>
@@ -37,8 +37,8 @@
                                     @foreach($clientes as $i)
                                     <tr>
                                         <!-- <td>{{ $i->id }}</td> -->
-                                        <td>{{ $i->razon_social }}</td>
-                                        <td>{{ $i->representante }}</td>
+                                        <td>{{ $i->nombre }} {{ $i->apellido }}</td>
+                                        <td>{{ $i->dui }}</td>
                                         <td>
                                             @if( $i->activo == 1 )
                                             <p class="font-weight-bold text-success">Activo</p>

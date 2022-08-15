@@ -25,25 +25,17 @@
                             <div class="row">
                                 <div class="col-md-4">  
                                     <div class="form-group">
-                                        <label>Razon social</label>
-                                        <input type="text" name="razon_social" id="razon_social" class="form-control" placeholder="Razon social..." value="{{ $cliente->razon_social }}" readonly>
+                                        <label>Nombre</label>
+                                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre..." value="{{ $cliente->nombre }}" readonly>
                                     </div>         
                                     <div class="form-group">
-                                        <label>Representante</label>
-                                        <input type="text" name="representante" id="representante" class="form-control" placeholder="Representante..." value="{{ $cliente->representante }}" readonly>
+                                        <label>Apellido</label>
+                                        <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido..." value="{{ $cliente->apellido }}" readonly>
                                     </div>                              
                                     <div class="form-group">
                                         <label>DUI</label>
                                         <input type="text" name="dui" id="dui" class="form-control" placeholder="DUI..." value="{{ $cliente->dui }}" readonly>
                                     </div>                              
-                                    <div class="form-group">
-                                        <label>NIT</label>
-                                        <input type="text" name="nit" id="nit" class="form-control" placeholder="NIT..." value="{{ $cliente->nit }}" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Telefono</label>
-                                        <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Telefono..." value="{{ $cliente->telefono }}" readonly>
-                                    </div>                                                   
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">

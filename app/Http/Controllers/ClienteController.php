@@ -29,11 +29,9 @@ class ClienteController extends Controller
     public function guardar(ClienteFormRequest $request) {
         $request->validated();
         $cliente = new cliente();
-        $cliente->razon_social = $request->input('razon_social');
-        $cliente->representante = $request->input('representante');
+        $cliente->nombre = $request->input('nombre');
+        $cliente->apellido = $request->input('apellido');
         $cliente->dui = $request->input('dui');
-        $cliente->nit = $request->input('nit');
-        $cliente->telefono = $request->input('telefono');
         $cliente->email = $request->input('email');
         $cliente->password = Hash::make($request->input('password'));
         $cliente->activo = 0;
@@ -50,20 +48,16 @@ class ClienteController extends Controller
 
     public function actualizar(Request $request, $id) {
         $request->validate([
-            'razon_social' => 'required',
-            'representante' => 'required',
+            'nombre' => 'required',
+            'apellido' => 'required',
             'dui' => 'required',
-            'nit' => 'required',
-            'telefono' => 'required',
             'email' => 'required',
             'activo' => 'required'
         ]);
         $cliente = $this->clienteRepository->getById($id);
-        $cliente->razon_social = $request->input('razon_social');
-        $cliente->representante = $request->input('representante');
+        $cliente->nombre = $request->input('nombre');
+        $cliente->apellido = $request->input('apellido');
         $cliente->dui = $request->input('dui');
-        $cliente->nit = $request->input('nit');
-        $cliente->telefono = $request->input('telefono');
         $cliente->email = $request->input('email');
         if ( !empty($request->input('password')) )
             $cliente->password = Hash::make($request->input('password'));
