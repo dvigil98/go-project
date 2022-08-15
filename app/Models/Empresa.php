@@ -23,4 +23,9 @@ class Empresa extends Model
     {
         return $this->belongsTo(Cliente::class);
     }
+
+    public function sucursales()
+    {
+        return $this->hasMany(Sucursal::class);
+    }
 }

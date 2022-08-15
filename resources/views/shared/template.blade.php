@@ -69,6 +69,12 @@
                                 <p>Empresas</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/sucursales" class="nav-link" id="sucursales">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>Sucursales</p>
+                            </a>
+                        </li>
                         <li class="nav-header">Configuraciones</li>
                         <li class="nav-item">
                             <a href="/departamentos" class="nav-link" id="departamentos">

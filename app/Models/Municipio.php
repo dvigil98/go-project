@@ -27,4 +27,9 @@ class Municipio extends Model
     {
         return $this->hasMany(RutaDetalle::class);
     }
+
+    public function sucursales()
+    {
+        return $this->hasMany(Sucursal::class);
+    }
 }

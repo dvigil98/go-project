@@ -10,6 +10,7 @@ use App\Http\Controllers\MunicipioController;
 use App\Http\Controllers\RutaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\SucursalController;
  
 /*
 |--------------------------------------------------------------------------
@@ -95,6 +96,16 @@ Route::put('/empresas/actualizar/{id}', [EmpresaController::class, 'actualizar']
 Route::delete('/empresas/eliminar/{id}', [EmpresaController::class, 'eliminar']);
 Route::get('/empresas/detalles/{id}', [EmpresaController::class, 'detalles']);
 
+// sucursales
+Route::get('/sucursales', [SucursalController::class, 'index']);
+Route::get('/sucursales/agregar', [SucursalController::class, 'agregar']);
+Route::post('/sucursales/guardar', [SucursalController::class, 'guardar']);
+Route::get('/sucursales/editar/{id}', [SucursalController::class, 'editar']);
+Route::put('/sucursales/actualizar/{id}', [SucursalController::class, 'actualizar']);
+Route::delete('/sucursales/eliminar/{id}', [SucursalController::class, 'eliminar']);
+Route::get('/sucursales/detalles/{id}', [SucursalController::class, 'detalles']);
+Route::get('/sucursales/municipios/departamento/{departamento_id}', [SucursalController::class, 'obtenerMunicipios']);
+
 // Configuracion inicial
 
 use App\Models\Rol;
@@ -110,6 +121,11 @@ Route::get('/crear-usuario', function() {
     $rol2->nombre = 'Conductor';
     $rol2->descripcion = 'Rol para manejar todas las funcionalidades que corresponde a los conductores';
     $rol2->save();
+
+    $rol3 = new Rol();
+    $rol3->nombre = 'Gerente de logistica';
+    $rol3->descripcion = 'Rol para manejar todas las funcionalidades que corresponde a las solicitudes de envios y rutas';
+    $rol3->save();
 
     $user = new User();
     $user->nombre = 'David Vigil';
