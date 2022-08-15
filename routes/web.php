@@ -9,6 +9,7 @@ use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\MunicipioController;
 use App\Http\Controllers\RutaController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\EmpresaController;
  
 /*
 |--------------------------------------------------------------------------
@@ -84,6 +85,15 @@ Route::get('/clientes/editar/{id}', [ClienteController::class, 'editar']);
 Route::put('/clientes/actualizar/{id}', [ClienteController::class, 'actualizar']);
 Route::delete('/clientes/eliminar/{id}', [ClienteController::class, 'eliminar']);
 Route::get('/clientes/detalles/{id}', [ClienteController::class, 'detalles']);
+
+// empresas
+Route::get('/empresas', [EmpresaController::class, 'index']);
+Route::get('/empresas/agregar', [EmpresaController::class, 'agregar']);
+Route::post('/empresas/guardar', [EmpresaController::class, 'guardar']);
+Route::get('/empresas/editar/{id}', [EmpresaController::class, 'editar']);
+Route::put('/empresas/actualizar/{id}', [EmpresaController::class, 'actualizar']);
+Route::delete('/empresas/eliminar/{id}', [EmpresaController::class, 'eliminar']);
+Route::get('/empresas/detalles/{id}', [EmpresaController::class, 'detalles']);
 
 // Configuracion inicial
 

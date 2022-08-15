@@ -63,6 +63,12 @@
                                 <p>Clientes</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/empresas" class="nav-link" id="empresas">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>Empresas</p>
+                            </a>
+                        </li>
                         <li class="nav-header">Configuraciones</li>
                         <li class="nav-item">
                             <a href="/departamentos" class="nav-link" id="departamentos">

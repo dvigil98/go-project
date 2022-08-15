@@ -21,4 +21,9 @@ class Cliente extends Model
         'password',
         'activo'
     ];
+
+    public function empresas()
+    {
+        return $this->hasMany(Empresas::class);
+    }
 }
