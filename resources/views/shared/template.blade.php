@@ -75,6 +75,12 @@
                                 <p>Sucursales</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/destinatarios" class="nav-link" id="destinatarios">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>Destinatarios</p>
+                            </a>
+                        </li>
                         <li class="nav-header">Configuraciones</li>
                         <li class="nav-item">
                             <a href="/departamentos" class="nav-link" id="departamentos">

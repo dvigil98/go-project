@@ -11,6 +11,7 @@ use App\Http\Controllers\RutaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\SucursalController;
+use App\Http\Controllers\DestinatarioController;
  
 /*
 |--------------------------------------------------------------------------
@@ -106,6 +107,15 @@ Route::delete('/sucursales/eliminar/{id}', [SucursalController::class, 'eliminar
 Route::get('/sucursales/detalles/{id}', [SucursalController::class, 'detalles']);
 Route::get('/sucursales/municipios/departamento/{departamento_id}', [SucursalController::class, 'obtenerMunicipios']);
 
+// destinatarios
+Route::get('/destinatarios', [DestinatarioController::class, 'index']);
+Route::get('/destinatarios/agregar', [DestinatarioController::class, 'agregar']);
+Route::post('/destinatarios/guardar', [DestinatarioController::class, 'guardar']);
+Route::get('/destinatarios/editar/{id}', [DestinatarioController::class, 'editar']);
+Route::put('/destinatarios/actualizar/{id}', [DestinatarioController::class, 'actualizar']);
+Route::delete('/destinatarios/eliminar/{id}', [DestinatarioController::class, 'eliminar']);
+Route::get('/destinatarios/detalles/{id}', [DestinatarioController::class, 'detalles']);
+
 // Configuracion inicial
 
 use App\Models\Rol;
@@ -137,4 +147,3 @@ Route::get('/crear-usuario', function() {
 
     return redirect('/');
 });
-
