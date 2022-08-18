@@ -26,4 +26,9 @@ class Destinatario extends Model
     {
         return $this->belongsTo(Cliente::class);
     }
+
+    public function direcciones()
+    {
+        return $this->hasMany(DireccionDestinatario::class);
+    }
 }

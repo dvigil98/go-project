@@ -116,6 +116,12 @@ Route::put('/destinatarios/actualizar/{id}', [DestinatarioController::class, 'ac
 Route::delete('/destinatarios/eliminar/{id}', [DestinatarioController::class, 'eliminar']);
 Route::get('/destinatarios/detalles/{id}', [DestinatarioController::class, 'detalles']);
 
+// direcciones
+Route::post('/direcciones/guardar', [DestinatarioController::class, 'guardarDireccion']);
+Route::get('/direcciones/obtener/{id}', [DestinatarioController::class, 'obtenerDireccion']);
+Route::put('/direcciones/actualizar', [DestinatarioController::class, 'actualizarDireccion']);
+Route::delete('/direcciones/eliminar/{id}', [DestinatarioController::class, 'eliminarDireccion']);
+
 // Configuracion inicial
 
 use App\Models\Rol;

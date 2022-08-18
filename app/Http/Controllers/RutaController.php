@@ -74,21 +74,25 @@ class RutaController extends Controller
     }
 
     public function editarDetalle(Request $request) {
+        $request->validate([
+            'costo' => 'required'
+        ]);
         $ruta_id = $request->input('ruta_id');
         $detalle_id = $request->input('detalle_id');
         $costo = $request->input('costo');
         $rutaDetalle = $this->rutaRepository->getDetailById($detalle_id);
         $rutaDetalle->costo = $costo;
         if ( $this->rutaRepository->updateDetail($rutaDetalle) )
-            return redirect('/rutas/detalles/'.$ruta_id)->with('msgType','success')->with('msg','Datos eliminados');
+            return redirect('/rutas/detalles/'.$ruta_id)->with('msgType','success')->with('msg','Datos editados');
         else
-            return redirect('/rutas/detalles/'.$ruta_id)->with('msgType','danger')->with('msg','Datos no eliminados');
+            return redirect('/rutas/detalles/'.$ruta_id)->with('msgType','danger')->with('msg','Datos no editados');
     }
 
     public function agregarMunicipio(Request $request) {
         $request->validate([
             'departamento_id' => 'required',
-            'municipio_id' => 'required'
+            'municipio_id' => 'required',
+            'costo' => 'required'
         ]);
         $rutaDetalle = new RutaDetalle();
         $ruta_id = $request->input('ruta_id');

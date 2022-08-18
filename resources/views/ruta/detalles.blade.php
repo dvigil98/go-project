@@ -51,7 +51,7 @@
                 <div class="form-group">
                     <div class="form-group">
                         <label>Departamento</label>
-                        <select name="departamento_id" id="departamento_id" class="form-control selectpicker" data-live-search="true">
+                        <select name="departamento_id" id="departamento_id" class="form-control @error('departamento_id') is-invalid @enderror selectpicker" data-live-search="true">
                             <option value="">Seleccione</option>
                             @foreach($departamentos as $i)
                             <option value="{{ $i->id }}">{{ $i->nombre }}</option>
@@ -60,13 +60,13 @@
                     </div>                              
                     <div class="form-group">
                         <label>Municipio</label>
-                        <select name="municipio_id" id="municipio_id" class="form-control selectpicker" data-live-search="true">
+                        <select name="municipio_id" id="municipio_id" class="form-control @error('municipio_id') is-invalid @enderror selectpicker" data-live-search="true">
                             <option value="">Seleccione</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Costo</label>
-                        <input type="number" name="costo" id="costo" class="form-control" placeholder="Costo...">
+                        <input type="number" name="costo" id="costo" class="form-control @error('costo') is-invalid @enderror" placeholder="Costo...">
                     </div>                              
                 </div>
             </div>

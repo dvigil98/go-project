@@ -6,13 +6,18 @@ use Illuminate\Http\Request;
 use App\Models\Destinatario;
 use App\Repositories\DestinatarioRepository;
 use App\Http\Requests\DestinatarioFormRequest;
+use App\Models\DireccionDestinatario;
+use App\Repositories\DireccionDestinatarioRepository;
+use App\Http\Requests\DireccionDestinatarioFormRequest;
 
 class DestinatarioController extends Controller
 {
     private $destinatarioRepository;
+    private $direccionDestinatarioRepository;
 
-    public function __construct(DestinatarioRepository $destinatarioRepository) {
+    public function __construct(DestinatarioRepository $destinatarioRepository, DireccionDestinatarioRepository $direccionDestinatarioRepository) {
         $this->destinatarioRepository = $destinatarioRepository;
+        $this->direccionDestinatarioRepository = $direccionDestinatarioRepository;
         $this->middleware('auth');
     }
 
@@ -71,6 +76,51 @@ class DestinatarioController extends Controller
 
     public function detalles($id) {
         $destinatario = $this->destinatarioRepository->getDetails($id);
-        return view('destinatario/detalles', ['destinatario' => $destinatario]);
+        $direcciones = $this->direccionDestinatarioRepository->getAll($id);
+        $departamentos = $this->direccionDestinatarioRepository->getDepartamentos();
+        return view('destinatario/detalles', ['destinatario' => $destinatario, 'direcciones' => $direcciones, 'departamentos' => $departamentos]);
     }
+
+    // direcciones
+
+    public function guardarDireccion(DireccionDestinatarioFormRequest $request) {
+        $request->validated();
+        $direccion = new DireccionDestinatario();
+        $direccion->nombre = $request->input('nombre');
+        $direccion->direccion = $request->input('direccion');
+        $direccion->telefono = $request->input('telefono');
+        $direccion->municipio_id = $request->input('municipio_id');
+        $direccion->destinatario_id = $request->input('destinatario_id');
+        if ( $this->direccionDestinatarioRepository->save($direccion) ) 
+            return redirect('/destinatarios/detalles/'.$direccion->destinatario_id)->with('msgType','success')->with('msg','Datos guardados');
+        else
+            return redirect('/destinatarios/detalles/'.$direccion->destinatario_id)->with('msgType','danger')->with('msg','Datos no guardados');
+    }
+    
+    public function obtenerDireccion($id) {
+        $direccion = $this->direccionDestinatarioRepository->getById($id);
+        return $direccion;
+    }
+
+    public function actualizarDireccion(DireccionDestinatarioFormRequest $request) {
+        $request->validated();
+        $direccion = $this->direccionDestinatarioRepository->getById($request->input('direccion_id'));
+        $direccion->nombre = $request->input('nombre');
+        $direccion->direccion = $request->input('direccion');
+        $direccion->telefono = $request->input('telefono');
+        $direccion->municipio_id = $request->input('municipio_id');
+        $direccion->destinatario_id = $request->input('destinatario_id');
+        if ( $this->direccionDestinatarioRepository->update($direccion) ) 
+            return redirect('/destinatarios/detalles/'.$direccion->destinatario_id)->with('msgType','success')->with('msg','Datos guardados');
+        else
+            return redirect('/destinatarios/detalles/'.$direccion->destinatario_id)->with('msgType','danger')->with('msg','Datos no guardados');
+    }
+
+    public function eliminarDireccion($id, Request $request) {
+        if ( $this->direccionDestinatarioRepository->delete($id) ) 
+            return redirect('/destinatarios/detalles/'.$request->destinatario_id)->with('msgType','success')->with('msg','Datos eliminados');
+        else
+            return redirect('/destinatarios/detalles/'.$request->destinatario_id)->with('msgType','danger')->with('msg','Datos no eliminados');
+    }
+
 }

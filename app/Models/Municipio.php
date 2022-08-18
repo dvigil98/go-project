@@ -32,4 +32,9 @@ class Municipio extends Model
     {
         return $this->hasMany(Sucursal::class);
     }
+
+    public function direcciones()
+    {
+        return $this->hasMany(DireccionDestinatario::class);
+    }
 }
