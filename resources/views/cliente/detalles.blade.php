@@ -66,6 +66,6 @@
 @endsection
 @section('scripts')
 <script>
-    $('#departamentos').addClass('active')
+    $('#clientes').addClass('active')
 </script>
 @endsection

@@ -12,6 +12,8 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\SucursalController;
 use App\Http\Controllers\DestinatarioController;
+use App\Http\Controllers\SolicitudController;
+use App\Http\Controllers\TrackController;
  
 /*
 |--------------------------------------------------------------------------
@@ -122,12 +124,59 @@ Route::get('/direcciones/obtener/{id}', [DestinatarioController::class, 'obtener
 Route::put('/direcciones/actualizar', [DestinatarioController::class, 'actualizarDireccion']);
 Route::delete('/direcciones/eliminar/{id}', [DestinatarioController::class, 'eliminarDireccion']);
 
+// solicitudes
+Route::get('/solicitudes', [SolicitudController::class, 'index']);
+Route::get('/solicitudes/agregar', [SolicitudController::class, 'agregar']);
+Route::post('/solicitudes/guardar', [SolicitudController::class, 'guardar']);
+Route::get('/solicitudes/editar/{id}', [SolicitudController::class, 'editar']);
+Route::put('/solicitudes/actualizar/{id}', [SolicitudController::class, 'actualizar']);
+Route::delete('/solicitudes/eliminar/{id}', [SolicitudController::class, 'eliminar']);
+Route::get('/solicitudes/detalles/{id}', [SolicitudController::class, 'detalles']);
+Route::get('/solicitudes/obtener-empresas/{cliente_id}', [SolicitudController::class, 'obtenerEmpresas']);
+Route::get('/solicitudes/obtener-sucursales/{empresa_id}', [SolicitudController::class, 'obtenerSucursales']);
+Route::get('/solicitudes/obtener-destinatarios/{cliente_id}', [SolicitudController::class, 'obtenerDestinatarios']);
+Route::get('/solicitudes/obtener-direcciones/{destinatario_id}', [SolicitudController::class, 'obtenerDirecciones']);
+Route::get('/solicitudes/obtener-direccion/{direccion_id}', [SolicitudController::class, 'obtenerDireccion']);
+Route::get('/solicitudes/obtener-departamentos/{ruta_id}', [SolicitudController::class, 'obtenerDepartamentos']);
+Route::get('/solicitudes/obtener-municipios/{departamento_id}', [SolicitudController::class, 'obtenerMunicipios']);
+Route::get('/solicitudes/obtener-historial/{solicitud_id}', [SolicitudController::class, 'obtenerHistorial']);
+Route::get('/solicitudes/cambiar-estado/{solicitud_id}/{id}', [SolicitudController::class, 'cambiarEstado']);
+
+// track
+Route::get('/track-package', [TrackController::class, 'trackView']);
+Route::get('/obtener-historial/{codigo}', [TrackController::class, 'obtenerHistorialPorCodigo']);
+Route::get('/obtener-solicitud/{codigo}', [TrackController::class, 'obtenerSolicitudPorCodigo']);
+
 // Configuracion inicial
 
 use App\Models\Rol;
 use App\Models\User;
+use App\Models\Estado;
 
 Route::get('/crear-usuario', function() {
+
+    // Estados de solicitudes
+    $estado1 = new Estado();
+    $estado1->nombre = 'Notificado';
+    $estado1->descripcion = 'El estado de la solicitud de envio esta: Notificado';
+    $estado1->save();
+
+    $estado2 = new Estado();
+    $estado2->nombre = 'Recolectado';
+    $estado2->descripcion = 'El estado de la solicitud de envio esta: Recolectado';
+    $estado2->save();
+
+    $estado3 = new Estado();
+    $estado3->nombre = 'Enviado';
+    $estado3->descripcion = 'El estado de la solicitud de envio esta: Enviado';
+    $estado3->save();
+
+    $estado4 = new Estado();
+    $estado4->nombre = 'Entregado';
+    $estado4->descripcion = 'El estado de la solicitud de envio esta: Entregado';
+    $estado4->save();
+
+    // Roles
     $rol1 = new Rol();
     $rol1->nombre = 'Administrador';
     $rol1->descripcion = 'Rol para manejar todas las funcionalidades de la aplicacion';
@@ -143,6 +192,7 @@ Route::get('/crear-usuario', function() {
     $rol3->descripcion = 'Rol para manejar todas las funcionalidades que corresponde a las solicitudes de envios y rutas';
     $rol3->save();
 
+    // Usuarios
     $user = new User();
     $user->nombre = 'David Vigil';
     $user->email = 'david@gmail.com';
@@ -152,4 +202,5 @@ Route::get('/crear-usuario', function() {
     $user->save();
 
     return redirect('/');
+
 });

@@ -81,6 +81,24 @@
                                 <p>Destinatarios</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/solicitudes" class="nav-link" id="solicitudes">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>Solicitudes</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" id="#">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>Inventario</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" id="#">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>Envios</p>
+                            </a>
+                        </li>
                         <li class="nav-header">Configuraciones</li>
                         <li class="nav-item">
                             <a href="/departamentos" class="nav-link" id="departamentos">
@@ -92,6 +110,12 @@
                             <a href="/municipios" class="nav-link" id="municipios">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>Municipios</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" id="#">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>Bodegas</p>
                             </a>
                         </li>
                         <li class="nav-header">Accesos</li>

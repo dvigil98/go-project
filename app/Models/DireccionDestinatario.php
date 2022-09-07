@@ -31,4 +31,9 @@ class DireccionDestinatario extends Model
         return $this->belongsTo(Destinatario::class);
     }
 
+    public function solicitudes()
+    {
+        return $this->hasMany(Solicitud::class);
+    }
+
 }

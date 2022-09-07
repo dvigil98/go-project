@@ -5,31 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sucursal extends Model
+class Estado extends Model
 {
     use HasFactory;
 
-    protected $table = 'sucursales';
+    protected $table = 'estados';
 
     protected $primaryKey = 'id';
 
     protected $fillable = [
         'nombre',
-        'telefono',
-        'direccion',
-        'activo',
-        'municipio_id',
-        'empresa_id'
+        'descripcion'
     ];
 
-    public function municipio()
+    public function historialMovimientos()
     {
-        return $this->belongsTo(Municipio::class);
-    }
-
-    public function empresa()
-    {
-        return $this->belongsTo(Empresa::class);
+        return $this->hasMany(HistorialMovimiento::class);
     }
 
     public function solicitudes()

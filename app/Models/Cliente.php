@@ -24,7 +24,7 @@ class Cliente extends Model
 
     public function empresas()
     {
-        return $this->hasMany(Empresas::class);
+        return $this->hasMany(Empresa::class);
     }
 
     public function destinatarios()
