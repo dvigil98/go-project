@@ -13,6 +13,8 @@ use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\SucursalController;
 use App\Http\Controllers\DestinatarioController;
 use App\Http\Controllers\SolicitudController;
+use App\Http\Controllers\BodegaController;
+
 use App\Http\Controllers\TrackController;
  
 /*
@@ -141,6 +143,15 @@ Route::get('/solicitudes/obtener-departamentos/{ruta_id}', [SolicitudController:
 Route::get('/solicitudes/obtener-municipios/{departamento_id}', [SolicitudController::class, 'obtenerMunicipios']);
 Route::get('/solicitudes/obtener-historial/{solicitud_id}', [SolicitudController::class, 'obtenerHistorial']);
 Route::get('/solicitudes/cambiar-estado/{solicitud_id}/{id}', [SolicitudController::class, 'cambiarEstado']);
+
+// bodegas
+Route::get('/bodegas', [BodegaController::class, 'index']);
+Route::get('/bodegas/agregar', [BodegaController::class, 'agregar']);
+Route::post('/bodegas/guardar', [BodegaController::class, 'guardar']);
+Route::get('/bodegas/editar/{id}', [BodegaController::class, 'editar']);
+Route::put('/bodegas/actualizar/{id}', [BodegaController::class, 'actualizar']);
+Route::delete('/bodegas/eliminar/{id}', [BodegaController::class, 'eliminar']);
+Route::get('/bodegas/detalles/{id}', [BodegaController::class, 'detalles']);
 
 // track
 Route::get('/track-package', [TrackController::class, 'trackView']);

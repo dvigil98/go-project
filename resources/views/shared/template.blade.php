@@ -113,7 +113,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" id="#">
+                            <a href="/bodegas" class="nav-link" id="bodegas">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>Bodegas</p>
                             </a>

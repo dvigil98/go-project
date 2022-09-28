@@ -37,4 +37,9 @@ class Municipio extends Model
     {
         return $this->hasMany(DireccionDestinatario::class);
     }
+
+    public function bodegas()
+    {
+        return $this->hasMany(Bodega::class);
+    }
 }
