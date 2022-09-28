@@ -14,6 +14,7 @@ use App\Http\Controllers\SucursalController;
 use App\Http\Controllers\DestinatarioController;
 use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\BodegaController;
+use App\Http\Controllers\InventarioController;
 
 use App\Http\Controllers\TrackController;
  
@@ -152,6 +153,15 @@ Route::get('/bodegas/editar/{id}', [BodegaController::class, 'editar']);
 Route::put('/bodegas/actualizar/{id}', [BodegaController::class, 'actualizar']);
 Route::delete('/bodegas/eliminar/{id}', [BodegaController::class, 'eliminar']);
 Route::get('/bodegas/detalles/{id}', [BodegaController::class, 'detalles']);
+
+// inventarios
+Route::get('/inventarios', [InventarioController::class, 'index']);
+Route::get('/inventarios/agregar', [InventarioController::class, 'agregar']);
+Route::post('/inventarios/guardar', [InventarioController::class, 'guardar']);
+Route::get('/inventarios/editar/{id}', [InventarioController::class, 'editar']);
+Route::put('/inventarios/actualizar/{id}', [InventarioController::class, 'actualizar']);
+Route::delete('/inventarios/eliminar/{id}', [InventarioController::class, 'eliminar']);
+Route::get('/inventarios/detalles/{id}', [InventarioController::class, 'detalles']);
 
 // track
 Route::get('/track-package', [TrackController::class, 'trackView']);

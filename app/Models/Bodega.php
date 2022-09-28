@@ -25,4 +25,9 @@ class Bodega extends Model
         return $this->belongsTo(Municipio::class);
     }
 
+    public function inventarios()
+    {
+        return $this->hasMany(Inventario::class);
+    }
+    
 }

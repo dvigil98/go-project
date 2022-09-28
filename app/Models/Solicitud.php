@@ -44,4 +44,9 @@ class Solicitud extends Model
     {
         return $this->belongsTo(Estado::class);
     }
+
+    public function inventarios()
+    {
+        return $this->hasMany(Inventario::class);
+    }
 }

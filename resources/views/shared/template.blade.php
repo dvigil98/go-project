@@ -88,9 +88,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" id="#">
+                            <a href="/inventarios" class="nav-link" id="inventarios">
                                 <i class="nav-icon fas fa-th"></i>
-                                <p>Inventario</p>
+                                <p>Inventarios</p>
                             </a>
                         </li>
                         <li class="nav-item">

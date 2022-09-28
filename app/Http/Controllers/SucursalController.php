@@ -5,14 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Sucursal;
 use App\Repositories\SucursalRepository;
+
 use App\Http\Requests\SucursalFormRequest;
 
 class SucursalController extends Controller
 {
     private $sucursalRepository;
+    
 
     public function __construct(SucursalRepository $sucursalRepository) {
         $this->sucursalRepository = $sucursalRepository;
+        
         $this->middleware('auth');
     }
 

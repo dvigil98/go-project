@@ -4,16 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Solicitud;
+use App\Models\Inventario;
 use App\Models\HistorialMovimiento;
 use App\Repositories\SolicitudRepository;
+use App\Repositories\InventarioRepository;
 use App\Http\Requests\SolicitudFormRequest;
+
 
 class SolicitudController extends Controller
 {
     private $solicitudRepository;
+    private $inventarioRepository;
 
-    public function __construct(SolicitudRepository $solicitudRepository) {
+    public function __construct(SolicitudRepository $solicitudRepository, InventarioRepository $inventarioRepository) {
         $this->solicitudRepository = $solicitudRepository;
+        $this->inventarioReposotiry = $inventarioRepository;
         $this->middleware('auth');
     }
 
@@ -133,6 +138,16 @@ class SolicitudController extends Controller
         Solicitud::find($solicitudId)->update(['estado_id' => $estado_id]);
 
         $this->solicitudRepository->guardarHistorial($historial);
+
+        if ( $estado_id == 2 ) {
+
+            $inventario = new Inventario();
+            $inventario->solicitud_id = $solicitud_id;
+            $inventario->bodega_id = 1;
+            $inventario->estado = 'Disponible';
+            $inventario->save();
+
+        }
 
         return redirect('/solicitudes/detalles/'.$solicitudId)->with('msgType','success')->with('msg','Datos guardados');
     }
