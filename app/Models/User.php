@@ -36,4 +36,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Rol::class);
     }
+
+    public function envios()
+    {
+        return $this->hasMany(Envio::class);
+    }
+    
 }

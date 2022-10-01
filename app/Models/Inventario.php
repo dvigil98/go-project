@@ -29,4 +29,9 @@ class Inventario extends Model
         return $this->belongsTo(Bodega::class);
     }
 
+    public function enviosDetalles()
+    {
+        return $this->hasMany(EnvioDetalle::class);
+    }
+
 }

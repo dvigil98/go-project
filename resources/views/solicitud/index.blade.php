@@ -49,6 +49,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <a href="/solicitudes/agregar" class="btn btn-primary">Agregar solicitud</a>
+                    <a href="/solicitudes" class="btn btn-primary" title="Recargar"><i class="fas fa-sync-alt"></i></a>
                 </div>
                 <div class="card">
                     <div class="card-body">

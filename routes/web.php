@@ -15,6 +15,7 @@ use App\Http\Controllers\DestinatarioController;
 use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\BodegaController;
 use App\Http\Controllers\InventarioController;
+use App\Http\Controllers\EnvioController;
 
 use App\Http\Controllers\TrackController;
  
@@ -162,6 +163,16 @@ Route::get('/inventarios/editar/{id}', [InventarioController::class, 'editar']);
 Route::put('/inventarios/actualizar/{id}', [InventarioController::class, 'actualizar']);
 Route::delete('/inventarios/eliminar/{id}', [InventarioController::class, 'eliminar']);
 Route::get('/inventarios/detalles/{id}', [InventarioController::class, 'detalles']);
+
+// envios
+Route::get('/envios', [EnvioController::class, 'index']);
+Route::get('/envios/agregar', [EnvioController::class, 'agregar']);
+Route::post('/envios/guardar', [EnvioController::class, 'guardar']);
+Route::get('/envios/editar/{id}', [EnvioController::class, 'editar']);
+Route::put('/envios/actualizar/{id}', [EnvioController::class, 'actualizar']);
+Route::delete('/envios/eliminar/{id}', [EnvioController::class, 'eliminar']);
+Route::get('/envios/detalles/{id}', [EnvioController::class, 'detalles']);
+
 
 // track
 Route::get('/track-package', [TrackController::class, 'trackView']);

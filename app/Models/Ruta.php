@@ -22,4 +22,10 @@ class Ruta extends Model
     {
         return $this->hasMany(RutaDetalle::class);
     }
+
+    public function envios()
+    {
+        return $this->hasMany(Envio::class);
+    }
+    
 }

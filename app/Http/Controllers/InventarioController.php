@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Inventario;
 use App\Repositories\InventarioRepository;
-use App\Http\Requests\InventarioFormRequest;
 
 class InventarioController extends Controller
 {
@@ -25,7 +24,7 @@ class InventarioController extends Controller
         return view('inventario/agregar', []);
     }
 
-    public function guardar(InventarioFormRequest $request) {
+    public function guardar(Request $request) {
     }
 
     public function editar($id) {

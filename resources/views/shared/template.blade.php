@@ -94,7 +94,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" id="#">
+                            <a href="/envios" class="nav-link" id="envios">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>Envios</p>
                             </a>
