@@ -91,8 +91,10 @@
                                             <p class="font-weight-bold text-warning">Recolectado</p>
                                             @elseif( $i->estado_id == 3 )
                                             <p class="font-weight-bold text-info">Enviado</p>
+                                            @elseif( $i->estado_id == 4 )
+                                            <p class="font-weight-bold text-info">Entregado</p>
                                             @else
-                                            <p class="font-weight-bold text-success">Entregado</p>
+                                            <p class="font-weight-bold text-purple">Devuelto a bodega</p>
                                             @endif
                                         </td>
                                         <td class="w-25 text-center">
@@ -162,6 +164,7 @@
                         ${ d.estado_id == 2 ? 'recolectado' : '' }
                         ${ d.estado_id == 3 ? 'enviado' : '' }
                         ${ d.estado_id == 4 ? 'entregado' : '' }
+                        ${ d.estado_id == 5 ? 'devuelto a bodega' : '' }
                     </td>
                 </tr>
                 `

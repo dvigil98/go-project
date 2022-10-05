@@ -98,7 +98,8 @@ class EnvioController extends Controller
     }
 
     public function detalles($id) {
-        $envio = $this->envioRepository->getDetails($id);
-        return view('envio/detalles', ['envio' => $envio]);
+        $envio = $this->envioRepository->getEnvio($id);
+        $detalles = $this->envioRepository->getDetalles($id);
+        return view('envio/detalles', ['envio' => $envio, 'detalles' => $detalles]);
     }
 }

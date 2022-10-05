@@ -63,9 +63,17 @@ class EnvioRepository
         }
     }
 
-    public function getDetails($id) {
+    public function getEnvio($id) {
         try {
             return Envio::find($id);
+        } catch (\Throwable $th) {
+            return null;
+        }
+    }
+
+    public function getDetalles($id) {
+        try {
+            return EnvioDetalle::where('envio_id', $id)->get();
         } catch (\Throwable $th) {
             return null;
         }

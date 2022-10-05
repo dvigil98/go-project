@@ -80,7 +80,7 @@
                                     </div>      
                                     <div class="form-group">
                                         <label>Estado</label>
-                                        <input type="text" name="costo" id="costo" class="form-control" placeholder="Costo..." readonly value=" @if($solicitud->estado_id == 1) Notificado @elseif($solicitud->estado_id == 2) Recolectado @elseif($solicitud->estado_id == 3) Enviado @else Entregado @endif ">
+                                        <input type="text" name="costo" id="costo" class="form-control" placeholder="Costo..." readonly value=" @if($solicitud->estado_id == 1) Notificado @elseif($solicitud->estado_id == 2) Recolectado @elseif($solicitud->estado_id == 3) Enviado  @elseif($solicitud->estado_id == 4) Entregado  @else Devuelto a bodega @endif ">
                                     </div>                                                                             
                                 </div>
                                 <div class="col-md-4">

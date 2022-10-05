@@ -208,6 +208,11 @@ Route::get('/crear-usuario', function() {
     $estado4->descripcion = 'El estado de la solicitud de envio esta: Entregado';
     $estado4->save();
 
+    $estado5 = new Estado();
+    $estado5->nombre = 'Devuelto a bodega';
+    $estado5->descripcion = 'El estado de la solicitud de envio esta: Devuelto a bodega';
+    $estado5->save();
+
     // Roles
     $rol1 = new Rol();
     $rol1->nombre = 'Administrador';

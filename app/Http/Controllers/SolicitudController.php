@@ -128,6 +128,9 @@ class SolicitudController extends Controller
             case 4:
                 $descripcion = 'El estado de la solicitud es: Entregado';
                 break;
+            case 5:
+                    $descripcion = 'El estado de la solicitud es: Devuelto a bodega';
+                    break;
         }
 
         $historial->fecha = $fecha_registro;
@@ -147,6 +150,20 @@ class SolicitudController extends Controller
             $inventario->estado = 'Disponible';
             $inventario->save();
 
+        }
+
+        if ( $estado_id == 4 ) {
+
+            $inventario = Inventario::where('solicitud_id', $solicitud_id)->first();
+            $inventario->estado = 'No disponible';
+            $inventario->save();
+
+        }
+
+        if ( $estado_id == 5 ) {
+            $inventario = Inventario::where('solicitud_id', $solicitud_id)->first();
+            $inventario->estado = 'Disponible';
+            $inventario->save();
         }
 
         return redirect('/solicitudes/detalles/'.$solicitudId)->with('msgType','success')->with('msg','Datos guardados');
