@@ -155,6 +155,7 @@
     <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap-select/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap-select/js/i18n/defaults-es_ES.min.js') }}"></script>
+    <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
     @yield('scripts')
 </body>
 </html>
