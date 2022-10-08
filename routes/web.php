@@ -17,7 +17,6 @@ use App\Http\Controllers\BodegaController;
 use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\EnvioController;
 
-use App\Http\Controllers\TrackController;
  
 /*
 |--------------------------------------------------------------------------
@@ -173,11 +172,6 @@ Route::put('/envios/actualizar/{id}', [EnvioController::class, 'actualizar']);
 Route::delete('/envios/eliminar/{id}', [EnvioController::class, 'eliminar']);
 Route::get('/envios/detalles/{id}', [EnvioController::class, 'detalles']);
 
-
-// track
-Route::get('/track-package', [TrackController::class, 'trackView']);
-Route::get('/obtener-historial/{codigo}', [TrackController::class, 'obtenerHistorialPorCodigo']);
-Route::get('/obtener-solicitud/{codigo}', [TrackController::class, 'obtenerSolicitudPorCodigo']);
 
 // Configuracion inicial
 

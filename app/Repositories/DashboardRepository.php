@@ -56,8 +56,8 @@ class DashboardRepository
     public function obtenerNumeroDeEnviosPorMes($año) {
         try {
             $numeroDeEnviosPorMes = DB::table('envios')
-            ->select(DB::raw('COUNT(id) as envios'), DB::raw('MONTH(created_at) as mes'))
-            ->whereBetween('created_at', [$año.'/01/01', $año.'/12/31'])->groupBy(DB::raw('MONTH(created_at)'))->get();  
+            ->select(DB::raw('COUNT(id) as envios'), DB::raw('MONTH(fecha_delivery) as mes'))
+            ->whereBetween('created_at', [$año.'/01/01', $año.'/12/31'])->groupBy(DB::raw('MONTH(fecha_delivery)'))->get();  
             return $numeroDeEnviosPorMes;
         } catch (\Throwable $th) {  
             return null;

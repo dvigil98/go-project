@@ -165,7 +165,7 @@
 	datos2.forEach((d) => {
 		legends2.push(meses[d.mes - 1]);
 		values2.push(d.envios);
-		colors2.push(colores[i]);
+		colors2.push(colores[j]);
 		j++;
 		if (j == 3)
 			j = 0;

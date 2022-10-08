@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <a href="/envios/agregar" class="btn btn-primary">Agregar envio</a>
+                @if (Auth::user()->rol->nombre == 'Administrador' || Auth::user()->rol->nombre == 'Gerente de logistica') <a href="/envios/agregar" class="btn btn-primary">Agregar envio</a> @endif
                 </div>
                 <div class="card">
                     <div class="card-body">

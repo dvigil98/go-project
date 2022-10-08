@@ -44,13 +44,15 @@
             <div class="sidebar">
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-header">Principal</li>
+                        <li class="nav-header">Principal</li>  
                         <li class="nav-item">
                             <a href="/dashboard" class="nav-link" id="dashboard">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>Dashboard</p>
                             </a>
-                        </li>
+                        </li> 
+                        <!-- Solo para admin -->
+                        @if (Auth::user()->rol->nombre == 'Administrador')
                         <li class="nav-item">
                             <a href="/rutas" class="nav-link" id="rutas">
                                 <i class="nav-icon fas fa-th"></i>
@@ -81,24 +83,36 @@
                                 <p>Destinatarios</p>
                             </a>
                         </li>
+                        @endif
+                        <!--  -->
+                        
                         <li class="nav-item">
                             <a href="/solicitudes" class="nav-link" id="solicitudes">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>Solicitudes</p>
                             </a>
                         </li>
+
+                        <!-- Solo para admin y gerente -->
+                        @if(Auth::user()->rol->nombre == 'Administrador' || Auth::user()->rol->nombre == 'Gerente de logistica')
                         <li class="nav-item">
                             <a href="/inventarios" class="nav-link" id="inventarios">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>Inventarios</p>
                             </a>
                         </li>
+                        @endif
+                        <!-- -->
+                        
                         <li class="nav-item">
                             <a href="/envios" class="nav-link" id="envios">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>Envios</p>
                             </a>
                         </li>
+
+                        <!-- Solo para admin -->
+                        @if(Auth::user()->rol->nombre == 'Administrador')
                         <li class="nav-header">Configuraciones</li>
                         <li class="nav-item">
                             <a href="/departamentos" class="nav-link" id="departamentos">
@@ -131,6 +145,8 @@
                                 <p>Usuarios</p>
                             </a>
                         </li>
+                        @endif
+                        <!-- -->
                     </ul>
                 </nav>
             </div>
