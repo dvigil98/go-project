@@ -15,7 +15,7 @@ class CreateHistorialMovimientosTable extends Migration
     {
         Schema::create('historial_movimientos', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha');
+            $table->dateTime('fecha');
             $table->string('descripcion');
             $table->unsignedBigInteger('estado_id');
             $table->foreign('estado_id')->references('id')->on('estados');

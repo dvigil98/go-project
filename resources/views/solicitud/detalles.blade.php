@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="font-weight-bold">Departamentos</h1>
+                <h1 class="font-weight-bold">Solicitudes</h1>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="/solicitudes">Lista de solicitudes</a></li>

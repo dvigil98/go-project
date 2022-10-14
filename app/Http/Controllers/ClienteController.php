@@ -28,7 +28,7 @@ class ClienteController extends Controller
 
     public function guardar(ClienteFormRequest $request) {
         $request->validated();
-        $cliente = new cliente();
+        $cliente = new Cliente();
         $cliente->nombre = $request->input('nombre');
         $cliente->apellido = $request->input('apellido');
         $cliente->dui = $request->input('dui');
