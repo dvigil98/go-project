@@ -30,6 +30,7 @@ class EmpresaController extends Controller
         $request->validated();
         $empresa = new Empresa();
         $empresa->razon_social = $request->input('razon_social');
+        $empresa->nrc = $request->input('nrc');
         $empresa->activo = 1;
         $empresa->cliente_id = $request->input('cliente_id');
         if ( $this->empresaRepository->save($empresa) ) 
@@ -47,11 +48,13 @@ class EmpresaController extends Controller
     public function actualizar(Request $request, $id) {
         $request->validate([
             'razon_social' => 'required',
+            'nrc' => 'required',
             'activo' => 'required',
             'cliente_id' => 'required'
         ]);
         $empresa = $this->empresaRepository->getById($id);
         $empresa->razon_social = $request->input('razon_social');
+        $empresa->nrc = $request->input('nrc');
         $empresa->activo = $request->input('activo');
         $empresa->cliente_id = $request->input('cliente_id');
         if ( $this->empresaRepository->update($empresa) ) 

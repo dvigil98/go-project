@@ -15,6 +15,7 @@ class Empresa extends Model
 
     protected $fillable = [
         'razon_social',
+        'nrc',
         'activo',
         'cliente_id'
     ];

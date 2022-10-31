@@ -25,6 +25,7 @@ class EmpresaFormRequest extends FormRequest
     {
         return [
             'razon_social' => 'required',
+            'nrc' => 'required',
             'cliente_id' => 'required'
         ];
     }

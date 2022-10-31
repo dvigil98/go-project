@@ -28,6 +28,7 @@
                                     <tr>
                                         <!-- <th>Id</th> -->
                                         <th>Razon social</th>
+                                        <th>NRC</th>
                                         <th>Cliente</th>
                                         <th>Estado</th>
                                         <th class="text-center">Acciones</th>
@@ -38,6 +39,7 @@
                                     <tr>
                                         <!-- <td>{{ $i->id }}</td> -->
                                         <td>{{ $i->razon_social }}</td>
+                                        <td>{{ $i->nrc }}</td>
                                         <td>{{ $i->cliente->nombre }} {{ $i->cliente->apellido }}</td>
                                         <td>
                                             @if( $i->activo == 1 )

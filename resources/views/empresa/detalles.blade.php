@@ -27,7 +27,11 @@
                                     <div class="form-group">
                                         <label>Razon social</label>
                                         <input type="text" name="razon_social" id="razon_social" class="form-control" placeholder="Razon social..." value="{{ $empresa->razon_social }}" readonly>
-                                    </div>                              
+                                    </div>      
+                                    <div class="form-group">
+                                        <label>NRC</label>
+                                        <input type="text" name="nrc" id="nrc" class="form-control @error('nrc') is-invalid @enderror" placeholder="NRC..." value="{{ $empresa->nrc }}" readonly>
+                                    </div>                           
                                     <div class="form-group">
                                         <label>Cliente</label>
                                         <input type="text" name="cliente" id="cliente" class="form-control" placeholder="Cliente..." value="{{ $empresa->cliente->nombre }} {{ $empresa->cliente->apellido }}" readonly>

@@ -27,6 +27,10 @@
                                     <div class="form-group">
                                         <label>Razon social</label>
                                         <input type="text" name="razon_social" id="razon_social" class="form-control @error('razon_social') is-invalid @enderror" placeholder="Razon social...">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>NRC</label>
+                                        <input type="text" name="nrc" id="nrc" class="form-control @error('nrc') is-invalid @enderror" placeholder="NRC...">
                                     </div>                              
                                     <div class="form-group">
                                         <label>Cliente</label>
