@@ -157,7 +157,8 @@
                 <tr>
                     <td>${d.descripcion}</td>
                     <td>${
-                        new Intl.DateTimeFormat("es-SV", { timezone: 'America/El_Salvador'}).format(new Date(`${d.fecha}`))
+                        // new Intl.DateTimeFormat("es-SV", { timezone: 'America/El_Salvador'}).format(new Date(`${d.fecha}`))
+                        d.fecha
                     }</td>
                     <td>
                         ${ d.estado_id == 1 ? 'notificado' : '' }

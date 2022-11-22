@@ -16,6 +16,7 @@ class Envio extends Model
     protected $fillable = [
         'nombre',
         'fecha_delivery',
+        'estado',
         'user_id',
         'ruta_id'
     ];

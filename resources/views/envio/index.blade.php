@@ -31,6 +31,7 @@
                                         <th>Fecha delivery</th>
                                         <th>Conductor</th>
                                         <th>Ruta</th>
+                                        <th>Estado</th>
                                         <th class="text-center">Acciones</th>
                                     </tr>
                                 </thead>
@@ -43,6 +44,7 @@
                                         <td><?php echo date_format($date, 'd-m-Y'); ?></td>
                                         <td>{{ $i->user->nombre }}</td>
                                         <td>{{ $i->ruta->nombre }}</td>
+                                        <td>{{ $->estado }}</td>
                                         <td class="w-25 text-center">
                                             <div class="btn-group">
                                                 <a href="/envios/detalles/{{ $i->id }}" class="btn btn-light" title="Detalles"><i class="fas fa-info-circle"></i></a>

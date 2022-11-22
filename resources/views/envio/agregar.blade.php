@@ -26,7 +26,7 @@
                                 <div class="col-md-12">  
                                     <div class="form-group">
                                         <label>Nombre</label>
-                                        <input type="text" name="nombre" id="nombre" class="form-control @error('nombre') is-invalid @enderror" placeholder="Nombre...">
+                                        <input type="text" name="nombre" id="nombre" class="form-control @error('nombre') is-invalid @enderror" placeholder="Nombre..." readonly value="Envio #{{ time() }}">
                                     </div>
                                     <div class="form-group">
                                         <label>Fecha</label>

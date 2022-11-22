@@ -17,6 +17,7 @@ class CreateEnviosTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->date('fecha_delivery');    
+            $table->string('estado');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('ruta_id');

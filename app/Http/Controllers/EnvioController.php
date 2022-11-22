@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Models\Envio;
 use App\Models\EnvioDetalle;
 use App\Models\HistorialMovimiento;
@@ -40,6 +41,7 @@ class EnvioController extends Controller
         $envio = new Envio();
         $envio->nombre = $request->input('nombre');
         $envio->fecha_delivery = $request->input('fecha_delivery');
+        $envio->estado = 'En espera';
         $envio->user_id = $request->input('user_id');
         $envio->ruta_id = $request->input('ruta_id');
         if ( $this->envioRepository->saveMaestro($envio) ) {
@@ -58,9 +60,10 @@ class EnvioController extends Controller
                 
                 $hoy = getDate();
                 $fecha_registro = $hoy['year'].'-'.$hoy['mon'].'-'.$hoy['mday'];
+                $date = date('Y-m-d H:i:s');
                 
                 $historial = new HistorialMovimiento();
-                $historial->fecha = $fecha_registro;
+                $historial->fecha = $date;
                 $historial->descripcion = 'El estado de la solicitud es: Enviado';
                 $historial->estado_id = 3;
                 $historial->solicitud_id = $solicitudId[$i];

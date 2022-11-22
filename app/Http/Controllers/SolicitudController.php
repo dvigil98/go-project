@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 use App\Models\Solicitud;
 use App\Models\Inventario;
 use App\Models\HistorialMovimiento;
@@ -59,11 +60,13 @@ class SolicitudController extends Controller
         $solicitud->direccion_destinatario_id = $request->input('direccion_destinatario_id');
         if ( $this->solicitudRepository->save($solicitud) ) {
 
-            $hoy = getDate();
-            $fecha_registro = $hoy['year'].'-'.$hoy['mon'].'-'.$hoy['mday'];
+            // $hoy = getDate();
+            // $fecha_registro = $hoy['year'].'-'.$hoy['mon'].'-'.$hoy['mday'];
+
+            $date = date('Y-m-d H:i:s');
 
             $historial = new HistorialMovimiento();
-            $historial->fecha = $fecha_registro;
+            $historial->fecha = $date; //$fecha_registro;
             $historial->descripcion = 'El estado de la solicitud es: Notifcado';
             $historial->estado_id = 1;
             $historial->solicitud_id = $solicitud->id; 
@@ -109,6 +112,7 @@ class SolicitudController extends Controller
 
         $hoy = getDate();
         $fecha_registro = $hoy['year'].'-'.$hoy['mon'].'-'.$hoy['mday'];
+        $date = date('Y-m-d H:i:s');
         
         $historial = new HistorialMovimiento();
 
@@ -134,7 +138,7 @@ class SolicitudController extends Controller
                     break;
         }
 
-        $historial->fecha = $fecha_registro;
+        $historial->fecha = $date;
         $historial->descripcion = $descripcion;
         $historial->estado_id = $estado_id;
         $historial->solicitud_id = $solicitudId;
