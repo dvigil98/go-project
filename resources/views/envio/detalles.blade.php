@@ -19,8 +19,20 @@
         <form action="#" method="post">
         @csrf
             <div class="row">
-                <div class="col-md-4">                
+                <div class="col-md-4">    
                     <div class="card">
+                    <div class="card-header">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Cambiar estado del envio
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/envios/{{ $envio->id }}/cambiar-estado/{{ $estado = 'En espera' }}">En espera</a>
+                                <a class="dropdown-item" href="/envios/{{ $envio->id }}/cambiar-estado/{{ $estado = 'En ruta' }}">En ruta</a>
+                                <a class="dropdown-item" href="/envios/{{ $envio->id }}/cambiar-estado/{{ $estado = 'Finalizado' }}">Finalizado</a>
+                            </div>
+                            </div>
+                        </div>            
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">  
@@ -39,6 +51,10 @@
                                     <div class="form-group">
                                         <label>Ruta</label>
                                         <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre..." value="{{ $envio->ruta->nombre }}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Estado</label>
+                                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre..." value="{{ $envio->estado }}" readonly>
                                     </div>                              
                                 </div>
                             </div>

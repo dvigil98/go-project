@@ -171,6 +171,7 @@ Route::get('/envios/editar/{id}', [EnvioController::class, 'editar']);
 Route::put('/envios/actualizar/{id}', [EnvioController::class, 'actualizar']);
 Route::delete('/envios/eliminar/{id}', [EnvioController::class, 'eliminar']);
 Route::get('/envios/detalles/{id}', [EnvioController::class, 'detalles']);
+Route::get('/envios/{id}/cambiar-estado/{estado}', [EnvioController::class, 'cambiarEstado']);
 
 
 // Configuracion inicial

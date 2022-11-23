@@ -105,4 +105,12 @@ class EnvioController extends Controller
         $detalles = $this->envioRepository->getDetalles($id);
         return view('envio/detalles', ['envio' => $envio, 'detalles' => $detalles]);
     }
+
+    public function cambiarEstado($id, $estado)
+    {
+        $envio = $this->envioRepository->getById($id);
+        $envio->estado = $estado;
+        if($this->envioRepository->update($envio))
+        return redirect('/envios/detalles/'.$id)->with('msgType','success')->with('msg','Datos actualizados');
+    }
 }
